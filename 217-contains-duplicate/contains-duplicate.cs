@@ -1,14 +1,13 @@
 public class Solution {
     public bool ContainsDuplicate(int[] nums) {
-        var set = new HashSet<int>();
+        if (nums.Length==0) return false; 
 
-        for(int i = 0; i < nums.Length; i++)
+        var set = new HashSet<int>();
+        foreach(var num in nums)
         {
-            if(set.Contains(nums[i]))
-            return true;
-            set.Add(nums[i]);
+            if(set.Contains(num)) return true;
+            set.Add(num);
         }
-        
         return false;
     }
 }
