@@ -3,15 +3,13 @@ public class Solution {
         var map = new Dictionary<int, int>();
         for(int i = 0; i < nums.Length; i++)
         {
-                if(map.ContainsKey(nums[i]))
+                if(map.ContainsKey(nums[i]) && Math.Abs(i-map[nums[i]]) <=k ) 
                 {
-                    if(Math.Abs(i - map[nums[i]]) <= k)
-                    return true; 
-                    map[nums[i]]= i;
+                    return true;
                 }
                 else
                 {
-                    map.Add(nums[i], i);
+                    map[nums[i]] = i;
                 }                
         }
 
