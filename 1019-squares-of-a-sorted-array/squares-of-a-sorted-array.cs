@@ -1,26 +1,22 @@
 public class Solution {
     public int[] SortedSquares(int[] nums) {
-        // key insights: 
-        // the largest elements are at the edges
-        // 
-
-        int left = 0, right = nums.Length - 1; 
-        var res = new int[nums.Length];
-
-        for(int i = res.Length -1; i >=0; i--)
+        int[] result = new int[nums.Length];
+        int lptr = 0; 
+        int rptr = nums.Length - 1;
+        for(int i = nums.Length -1; i >= 0; i--)
         {
-            if(Math.Abs(nums[right]) > Math.Abs(nums[left]))
+            if(Math.Abs(nums[lptr]) > Math.Abs(nums[rptr]))
             {
-                res[i] = nums[right] * nums[right];
-                right--;
+                result[i] = nums[lptr] * nums[lptr];
+                lptr++;
             }
             else
             {
-                res[i] = nums[left] * nums[left];
-                left++;
+                result[i] = nums[rptr] * nums[rptr];
+                rptr--;
             }
         }
 
-        return res; 
+        return result;
     }
 }
